@@ -1,11 +1,9 @@
 import React from "react";
-import AnimatedText from "./components/AnimatedText";
+import Router from "./views/Router";
 
 function App() {
   return (
-    <div>
-      <AnimatedText text="테스트"/>
-    </div>
+      <Router/>
   );
 }
 
