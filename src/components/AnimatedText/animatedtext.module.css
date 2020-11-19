@@ -2,11 +2,6 @@
     animation: activate-text 0.5s forwards;
 }
 
-.letter.inactive {
-    opacity: 0;
-    bottom: .4em;
-}
-
 .letter {
     transition: all .3s ease;
     bottom: -.4em;
@@ -17,4 +12,15 @@
 @keyframes activate-text {
     0% { bottom: -0.4em; opacity: 0; }
     100% { bottom: 0; opacity: 1; }
+}
+
+.disabled {
+    animation: deactivate-text 0.5s forwards;
+    position: relative;
+    opacity: 1;
+}
+
+@keyframes deactivate-text {
+    0% { bottom: 0; opacity: 1; }
+    100% { bottom: 0.4em; opacity: 0; }
 }

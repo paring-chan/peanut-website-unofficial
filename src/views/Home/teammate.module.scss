@@ -31,17 +31,5 @@
   }
   .container {
     padding: 30px;
-    .title {
-      .char {
-        position: relative;
-        opacity: 0;
-        animation: move-text 0.5s forwards;
-      }
-    }
   }
-}
-
-@keyframes move-text {
-  0% { left: -0.4em; opacity: 0; }
-  100% { left: 0; opacity: 1; }
 }

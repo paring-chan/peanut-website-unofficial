@@ -19,15 +19,18 @@ class Teammate extends Component {
                 <div onClick={() => (this.setState({active: true, txtActive: true}))} className={`${tm.button}`}>
                     {this.props.name}
                 </div>
-                <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => this.setState({
-                    txtActive: false
-                })}>
+                <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => {
+                    this.setState({
+                        txtActive: false
+                    })
+                    setTimeout(() => this.setState({active: false}), 500)
+                }}>
                     {
                         this.state.active && <div className={tm.container}>
-                            <h1 className={tm.title}>
+                            <h1>
                                 <AnimatedText active={this.state.txtActive} text={this.props.name} interval={0.5} divide={20} delay={0.2} onDeactivate={() => this.setState({active: false})}/>
                             </h1>
-                            <AnimatedText text={this.props.desc} active={this.state.txtActive} interval={.05} divide={50} delay={0.5}/>
+                            <AnimatedText text={this.props.desc} active={this.state.txtActive} interval={.05} divide={50} delay={0.5} words/>
                         </div>
                     }
                 </div>
