@@ -35,7 +35,7 @@ class Teammate extends Component {
                                                       onDeactivate={() => this.setState({active: false})}/>
                                     </h1>
                                     <AnimatedText text={this.props.desc} active={this.state.txtActive} interval={.05}
-                                                  divide={50} delay={0.5} words/>
+                                                  divide={50} delay={1} words/>
                                 </div>
                             }
                         </div>
@@ -70,10 +70,13 @@ class Home extends Component {
                         <Teammate name="Item2" brief="설명설명"
                                   desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
                         <Teammate name="Item3" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate name="Item3" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate name="Item3" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate name="Item3" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate
+                        name="Item3" brief="설명설명"
+                        desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate
+                        name="Item3" brief="설명설명"
+                        desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate
+                        name="Item3" brief="설명설명"
+                        desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
                     </div>
                 </section>
             </div>

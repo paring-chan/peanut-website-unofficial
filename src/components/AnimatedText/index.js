@@ -9,7 +9,7 @@ import styles from './animatedtext.module.css'
  * @param active
  * @param words
  */
-const AnimatedText = ({text, delay=0, interval=.1, divide=10, active=true, words=false}) => {
+const AnimatedText = ({text='', delay=0, interval=.1, divide=10, active=true, words=false}) => {
     return (
         active ? text.split(words ? ' ' : '').map((c,i)=>(
             <span aria-hidden="true" key={i} style={{
@@ -20,7 +20,7 @@ const AnimatedText = ({text, delay=0, interval=.1, divide=10, active=true, words
                 {text}
             </span>
         )
-    );
+    )
 }
 
 export default AnimatedText;
