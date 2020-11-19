@@ -1,6 +1,37 @@
 import React, {Component} from 'react';
 import classes from './styles.module.scss'
 import AnimatedText from "../../components/AnimatedText";
+import tm from './teammate.module.scss'
+
+class Teammate extends Component {
+    state = {
+        active: false
+    }
+
+    render() {
+        return (
+            <div style={{
+                flexGrow: 1,
+                background: '#fff',
+                alignSelf: 'stretch'
+            }}>
+                <div onClick={() => (this.setState({active: true}))} className={`${tm.button}`}>
+                    {this.props.name}
+                </div>
+                <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => this.setState({active: false})}>
+                    {
+                        this.state.active && <div className={tm.container}>
+                            <h1 className={tm.title}>
+                                <AnimatedText text={this.props.name} interval={0.05} divide={20}/>
+                            </h1>
+                            {this.props.desc}
+                        </div>
+                    }
+                </div>
+            </div>
+        );
+    }
+}
 
 class Home extends Component {
     render() {
@@ -15,14 +46,35 @@ class Home extends Component {
                     </h1>
                 </section>
                 <section className={`${classes.flex__col} ${classes.minFullHeight}`}>
-                    <h1>팀원 소개</h1>
+                    <h1 style={{
+                        paddingTop: 10
+                    }}>팀원 소개</h1>
                     <div className={`${classes.flex__row} ${classes.sec2}`} style={{
-                        width: '100vw'
+                        width: '100vw',
+                        flexGrow: 2,
+                        background: '#000'
                     }}>
-                        <div className={classes.teammate}>1</div>
-                        <div className={classes.teammate}>2</div>
-                        <div className={classes.teammate}>3</div>
-                        <div className={classes.teammate}>4</div>
+                        <Teammate name="Item1" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item2" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item3" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                    </div>
+                    <div className={`${classes.flex__row} ${classes.sec2}`} style={{
+                        width: '100vw',
+                        flexGrow: 2,
+                        background: '#000'
+                    }}>
+                        <Teammate name="Item1" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item2" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item3" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                    </div>
+                    <div className={`${classes.flex__row} ${classes.sec2}`} style={{
+                        width: '100vw',
+                        flexGrow: 2,
+                        background: '#000'
+                    }}>
+                        <Teammate name="Item1" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item2" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item3" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
                     </div>
                 </section>
             </div>

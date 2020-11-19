@@ -1,0 +1,47 @@
+.button {
+  font-size: 30px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  &:hover {
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  background: #fff;
+  color: #000;
+  user-select: none;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  background: #000;
+  height: 100vh;
+  top: 0;
+  left: -100vw;
+  user-select: none;
+  transition: left .3s ease;
+  color: #fff;
+  &.active {
+    left: 0;
+  }
+  .container {
+    padding: 30px;
+    .title {
+      .char {
+        position: relative;
+        opacity: 0;
+        animation: move-text 0.5s forwards;
+      }
+    }
+  }
+}
+
+@keyframes move-text {
+  0% { left: -0.4em; opacity: 0; }
+  100% { left: 0; opacity: 1; }
+}
