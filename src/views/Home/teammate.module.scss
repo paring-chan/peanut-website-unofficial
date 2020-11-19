@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: calc(50vh - 24px);
   transition: background-color .2s ease-in-out, color .2s ease-in-out;
   &:hover {
     background: #000;
@@ -26,8 +26,27 @@
   user-select: none;
   transition: left .3s ease;
   color: #fff;
+  &:hover {
+    cursor: crosshair;
+  }
   &.active {
     left: 0;
+    .img {
+      background: url(https://i.imgur.com/9jjBXhA.jpg);
+      @media all and (min-width: 1024px) {
+        width: 150%;
+      }
+      @media all and (max-width: 1023px){
+        width: 100%;
+        flex-grow: 1;
+      }
+    }
+    @media all and (min-width: 1024px) {
+      flex-direction: row;
+    }
+    @media all and (max-width: 1023px){
+      flex-direction: column-reverse;
+    }
   }
   .container {
     padding: 30px;

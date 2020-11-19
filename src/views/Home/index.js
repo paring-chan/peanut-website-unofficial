@@ -11,31 +11,39 @@ class Teammate extends Component {
 
     render() {
         return (
-            <div style={{
-                flexGrow: 1,
-                background: '#fff',
-                alignSelf: 'stretch'
-            }}>
+            <div>
                 <div onClick={() => (this.setState({active: true, txtActive: true}))} className={`${tm.button}`}>
                     {this.props.name}
                 </div>
-                <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => {
-                    this.setState({
-                        txtActive: false
-                    })
-                    setTimeout(() => this.setState({active: false}), 500)
+                <div style={{
+                    background: '#fff',
                 }}>
-                    {
-                        this.state.active && <div className={tm.container}>
-                            <h1>
-                                <AnimatedText active={this.state.txtActive} text={this.props.name} interval={0.5} divide={20} delay={0.2} onDeactivate={() => this.setState({active: false})}/>
-                            </h1>
-                            <AnimatedText text={this.props.desc} active={this.state.txtActive} interval={.05} divide={50} delay={0.5} words/>
+                    <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => {
+                        this.setState({
+                            txtActive: false
+                        })
+                        setTimeout(() => this.setState({active: false}), 500)
+                    }} style={{
+                        display: 'flex'
+                    }}>
+                        <div>
+                            {
+                                this.state.active && <div className={tm.container}>
+                                    <h1>
+                                        <AnimatedText active={this.state.txtActive} text={this.props.name}
+                                                      interval={0.5} divide={20} delay={0.2}
+                                                      onDeactivate={() => this.setState({active: false})}/>
+                                    </h1>
+                                    <AnimatedText text={this.props.desc} active={this.state.txtActive} interval={.05}
+                                                  divide={50} delay={0.5} words/>
+                                </div>
+                            }
                         </div>
-                    }
+                        <div className={tm.img}/>
+                    </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
@@ -53,34 +61,19 @@ class Home extends Component {
                 </section>
                 <section className={`${classes.flex__col} ${classes.minFullHeight}`}>
                     <h1 style={{
-                        paddingTop: 10
+                        paddingTop: 10,
+                        fontSize: 30
                     }}>팀원 소개</h1>
-                    <div className={`${classes.flex__row} ${classes.sec2}`} style={{
-                        width: '100vw',
-                        flexGrow: 2,
-                        background: '#000'
-                    }}>
-                        <Teammate name="Item1" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item2" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item3" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                    </div>
-                    <div className={`${classes.flex__row} ${classes.sec2}`} style={{
-                        width: '100vw',
-                        flexGrow: 2,
-                        background: '#000'
-                    }}>
-                        <Teammate name="Item1" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item2" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item3" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                    </div>
-                    <div className={`${classes.flex__row} ${classes.sec2}`} style={{
-                        width: '100vw',
-                        flexGrow: 2,
-                        background: '#000'
-                    }}>
-                        <Teammate name="Item1" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item2" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item3" brief="설명설명" desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                    <div className={`${classes.flex__row} ${classes.sec2}`}>
+                        <Teammate name="Item1" brief="설명설명"
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item2" brief="설명설명"
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        <Teammate name="Item3" brief="설명설명"
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate name="Item3" brief="설명설명"
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate name="Item3" brief="설명설명"
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate name="Item3" brief="설명설명"
+                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
                     </div>
                 </section>
             </div>
