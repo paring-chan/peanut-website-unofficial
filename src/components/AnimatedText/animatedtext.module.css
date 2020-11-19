@@ -1,10 +1,20 @@
-.letter {
-    position: relative;
-    opacity: 0;
-    animation: move-text 0.5s forwards;
+.letter.active {
+    animation: activate-text 0.5s forwards;
 }
 
-@keyframes move-text {
+.letter.inactive {
+    opacity: 0;
+    bottom: .4em;
+}
+
+.letter {
+    transition: all .3s ease;
+    bottom: -.4em;
+    opacity: 0;
+    position: relative;
+}
+
+@keyframes activate-text {
     0% { bottom: -0.4em; opacity: 0; }
     100% { bottom: 0; opacity: 1; }
 }

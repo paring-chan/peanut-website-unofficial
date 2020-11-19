@@ -5,7 +5,8 @@ import tm from './teammate.module.scss'
 
 class Teammate extends Component {
     state = {
-        active: false
+        active: false,
+        txtActive: false
     }
 
     render() {
@@ -15,16 +16,18 @@ class Teammate extends Component {
                 background: '#fff',
                 alignSelf: 'stretch'
             }}>
-                <div onClick={() => (this.setState({active: true}))} className={`${tm.button}`}>
+                <div onClick={() => (this.setState({active: true, txtActive: true}))} className={`${tm.button}`}>
                     {this.props.name}
                 </div>
-                <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => this.setState({active: false})}>
+                <div className={`${tm.overlay} ${this.state.active ? tm.active : ''}`} onClick={() => this.setState({
+                    txtActive: false
+                })}>
                     {
                         this.state.active && <div className={tm.container}>
                             <h1 className={tm.title}>
-                                <AnimatedText text={this.props.name} interval={0.05} divide={20}/>
+                                <AnimatedText active={this.state.txtActive} text={this.props.name} interval={0.5} divide={20} delay={0.2} onDeactivate={() => this.setState({active: false})}/>
                             </h1>
-                            {this.props.desc}
+                            <AnimatedText text={this.props.desc} active={this.state.txtActive} interval={.05} divide={50} delay={0.5}/>
                         </div>
                     }
                 </div>
