@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css'
+import styles from './animatedtext.module.css'
 
 /**
  * @param text {string}
@@ -9,7 +9,7 @@ const AnimatedText = ({text, delay=0}) => {
     return (
         text.split('').map((c,i)=>(
             <span aria-hidden="true" key={i} style={{
-                'animation-delay': (.1 + i / 10 + delay) + 's'
+                animationDelay: (.1 + i / 10 + delay) + 's'
             }} className={styles.letter}>{c}</span>
         ))
     );
