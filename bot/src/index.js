@@ -11,7 +11,12 @@ const client = new d.Client()
 app.use(express.json())
 
 app.post('/eval',async (req, res) => {
-    const rst = await eval(req.body.code)
+    let rst
+    try {
+        rst = await eval(req.body.code)
+    } catch (e) {
+        rst = null
+    }
     console.log(rst)
     res.json({result: rst})
 })

@@ -48,6 +48,16 @@ class Teammate extends Component {
 }
 
 class Home extends Component {
+    state = {
+        members: null
+    }
+
+    async componentDidMount() {
+        this.setState({
+            members: await fetch(`${window.config.api}/members`).then(res=>res.json())
+        })
+    }
+
     render() {
         return (
             <div style={{overflow: 'hidden'}}>
@@ -65,18 +75,13 @@ class Home extends Component {
                         fontSize: 30
                     }}>팀원 소개</h1>
                     <div className={`${classes.flex__row} ${classes.sec2}`}>
-                        <Teammate name="Item1" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item2" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
-                        <Teammate name="Item3" brief="설명설명"
-                                  desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate
-                        name="Item3" brief="설명설명"
-                        desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate
-                        name="Item3" brief="설명설명"
-                        desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/><Teammate
-                        name="Item3" brief="설명설명"
-                        desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eaque fuga illo incidunt ipsam modi natus nemo obcaecati perferendis placeat porro quam quas quibusdam recusandae repellat, repudiandae rerum ullam veniam."/>
+                        {
+                            this.state.members ? (
+                                this.state.members.map((member, i) => (
+                                    <Teammate name={member.name} desc={member.description} image={member.image}/>
+                                ))
+                            ) : '로딩중...'
+                        }
                     </div>
                 </section>
             </div>
