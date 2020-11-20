@@ -7,6 +7,10 @@
     "dev": "nodemon src"
   },
   "devDependencies": {
+    "@types/express": "^4.17.9",
     "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
