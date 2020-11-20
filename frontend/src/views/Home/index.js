@@ -11,9 +11,17 @@ class Teammate extends Component {
 
     render() {
         return (
-            <div>
-                <div onClick={() => (this.setState({active: true, txtActive: true}))} className={`${tm.button}`}>
-                    {this.props.name}
+            <div style={{
+                padding: 10
+            }}>
+                <div onClick={() => (this.setState({active: true, txtActive: true}))} className={`${tm.button}`} style={{
+                    background: `url(${this.props.img})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat'
+                }}>
+                    <div className={tm.buttonInner}>
+                        {this.props.name}
+                    </div>
                 </div>
                 <div style={{
                     background: '#fff',
@@ -39,7 +47,9 @@ class Teammate extends Component {
                                 </div>
                             }
                         </div>
-                        <div className={tm.img}/>
+                        <div className={tm.img} style={{
+                            background: `url(${this.props.img})`
+                        }}/>
                     </div>
                 </div>
             </div>
@@ -78,7 +88,7 @@ class Home extends Component {
                         {
                             this.state.members ? (
                                 this.state.members.map((member, i) => (
-                                    <Teammate name={member.name} desc={member.description} image={member.image}/>
+                                    <Teammate name={member.name} key={i} desc={member.description} img={member.avatar}/>
                                 ))
                             ) : '로딩중...'
                         }

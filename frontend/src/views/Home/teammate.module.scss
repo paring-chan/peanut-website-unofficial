@@ -14,6 +14,18 @@
   background: #fff;
   color: #000;
   user-select: none;
+  &:hover {
+    .buttonInner {
+      opacity: 0.7;
+    }
+  }
+  .buttonInner {
+    transition: opacity .25s ease-in-out;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+  }
 }
 
 .overlay {
@@ -32,7 +44,9 @@
   &.active {
     left: 0;
     .img {
-      background: url(https://i.imgur.com/9jjBXhA.jpg);
+      background-size: cover !important;
+      background-position: center;
+      background-repeat: no-repeat !important;
       @media all and (min-width: 1024px) {
         width: 150%;
       }

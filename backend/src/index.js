@@ -17,6 +17,8 @@ const postEval = async code => {
 
 const app = express()
 
+app.use(require('cors')())
+
 const chn = '779333506690056212'
 
 app.get('/members', async (req, res) => {
